@@ -36,12 +36,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .logout()
                 	.permitAll();
+        http.csrf().disable();
     }
     
     @Override
     public void configure(WebSecurity web) throws Exception {
       web.ignoring().antMatchers("/js/**");
       web.ignoring().antMatchers("/css/**");
+      
     }
 
     @Autowired

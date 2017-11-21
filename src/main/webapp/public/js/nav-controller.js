@@ -23,6 +23,10 @@ angular.module('navController', [])
 				url: '#/customers'
 			},
 			{
+				name: 'Bill Payment',
+				url: '#/billpayment'
+			},
+			{
 				name: 'Logout',
 				url: 'logout'
 			}

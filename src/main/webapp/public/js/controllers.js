@@ -64,4 +64,6 @@ angular.module('app.controllers', []).controller('VendorListController', functio
 		  };
 
 		  $scope.loadCustomer(); // Load a shipwreck which can be edited on UI
+		}).controller('BillPaymentController', function($scope, $stateParams, Vendor) {
+			  console.log("Bill Payment Page opening");
 		});
