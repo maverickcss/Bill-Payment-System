@@ -77,6 +77,10 @@
 	        url:'/customers/:id/edit',
 	        templateUrl: viewsPrefix + 'customer-edit.html',
 	        controller:'CustomerEditController'
+	    }).state('Logout',{
+	        url:'/logout',
+	        templateUrl: 'login.jsp',
+	        controller:'LogoutController'
 	    })
 	})
 	.directive('updateTitle', ['$rootScope', '$timeout',

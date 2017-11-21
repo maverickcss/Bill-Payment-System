@@ -14,15 +14,15 @@ import com.boot.model.Customer;
 import com.boot.repository.CustomerRepository;
 
 @RestController
-@RequestMapping("api/v3")
+@RequestMapping("public/api/v3")
 public class CustomerController {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
 	
 	@RequestMapping(value = "customers", method = RequestMethod.POST)
-	public Customer create(@RequestBody Customer vendor){
-		return customerRepository.saveAndFlush(vendor);
+	public Customer create(@RequestBody Customer customer){
+		return customerRepository.saveAndFlush(customer);
 	}
 	
 	@RequestMapping(value = "customers", method = RequestMethod.GET)

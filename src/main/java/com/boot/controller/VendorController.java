@@ -14,7 +14,7 @@ import com.boot.model.Vendor;
 import com.boot.repository.VendorRepository;
 
 @RestController
-@RequestMapping("api/v2")
+@RequestMapping("public/api/v2")
 public class VendorController {
 	
 	@Autowired
