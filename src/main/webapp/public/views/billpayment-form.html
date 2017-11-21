@@ -1,45 +1,100 @@
 <div class="form-group">
-    <label for="bpCustomerName" class="col-sm-2 control-label">Customer Name</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpCustomerName" class="form-control" id="bpCustomerName" placeholder="Customer Name"/>
-    </div>
-    <label for="bpCustomerId" class="col-sm-2 control-label">Customer Id</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpCustomerId" class="form-control" id="bpCustomerId" placeholder="Customer Id"/>
-    </div>
-    <label for="bpVendorType" class="col-sm-2 control-label">Vendor Type</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpVendorType" class="form-control" id="bpVendorType" placeholder="Vendor Type"/>
-    </div>
-    <label for="bpPendingAmount" class="col-sm-2 control-label">Pending Amount</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpPendingAmount" class="form-control" id="bpPendingAmount" placeholder="Pending Amount"/>
-    </div>
-    <label for="bpPaymentDate" class="col-sm-2 control-label">Payment Date</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpPaymentDate" class="form-control" id="bpPaymentDate" placeholder="Payment Date"/>
-    </div>
-    <label for="bpAmountToPay" class="col-sm-2 control-label">Amount To Pay</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpAmountToPay" class="form-control" id="bpAmountToPay" placeholder="Amount To Pay"/>
-    </div>
-    <label for="bpCardNumber" class="col-sm-2 control-label">Card Number</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpCardNumber" class="form-control" id="bpCardNumber" placeholder="Card Number"/>
-    </div>
-    <label for="bpConfirmCardNumber" class="col-sm-2 control-label">Confirm Card Number</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpConfirmCardNumber" class="form-control" id="bpConfirmCardNumber" placeholder="Confirm Card Number"/>
-    </div>
-    <label for="bpCardValidity" class="col-sm-2 control-label">Card Validity</label> 
-    <div class="col-sm-10">
-    <label for="bpCardValidityMM" class="col-sm-2 control-label">MM</label>
-        <input type="text" ng-model="bp.bpCardValidityMM" class="form-control" id="bpCardValidityMM" placeholder="MM"/>
-    <label for="bpCardValidityYYYY" class="col-sm-2 control-label">YYYY</label>
-        <input type="text" ng-model="bp.bpCardValidityYYYY" class="form-control" id="bpCardValidityYYYY" placeholder="YYYY"/>
-    </div>
-    <label for="bpCVV" class="col-sm-2 control-label">CVV</label>
-    <div class="col-sm-10">
-        <input type="text" ng-model="bp.bpCVV" class="form-control" id="bpCVV" placeholder="CVV"/>
-    </div>
+	<label for="bpCustomerName" class="col-sm-3 control-label">Customer
+		Name</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpCustomerName" class="form-control"
+			id="bpCustomerName" placeholder="Customer Name" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpCustomerId" class="col-sm-3 control-label">Customer
+		Id</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpCustomerId" class="form-control"
+			id="bpCustomerId" placeholder="Customer Id" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpVendorType" class="col-sm-3 control-label">Vendor
+		Type</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpVendorType" class="form-control"
+			id="bpVendorType" placeholder="Vendor Type" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpPendingAmount" class="col-sm-3 control-label">Pending
+		Amount</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpPendingAmount" class="form-control"
+			id="bpPendingAmount" placeholder="Pending Amount" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpPaymentDate" class="col-sm-3 control-label">Payment
+		Date</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpPaymentDate" class="form-control"
+			id="bpPaymentDate" placeholder="Payment Date" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpAmountToPay" class="col-sm-3 control-label">Amount
+		To Pay</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpAmountToPay" class="form-control"
+			id="bpAmountToPay" placeholder="Amount To Pay" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpCardNumber" class="col-sm-3 control-label">Card
+		Number</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpCardNumber" class="form-control"
+			id="bpCardNumber" placeholder="Card Number" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpConfirmCardNumber" class="col-sm-3 control-label">Confirm
+		Card Number</label>
+	<div class="col-sm-6">
+		<input type="text" ng-model="bp.bpConfirmCardNumber"
+			class="form-control" id="bpConfirmCardNumber"
+			placeholder="Confirm Card Number" />
+	</div>
+</div>
+<div class="form-group">
+	<label for="bpCardValidity" class="col-sm-3 control-label">Card
+		Validity</label>
+	<table>
+		<tr>
+			<div class="col-sm-1">
+				<input width="100px" type="text" ng-model="bp.bpCardValidityMM"
+					class="form-control" id="bpCardValidityMM" placeholder="MM" />
+			</div>
+		</tr>
+		<tr>
+			<div class="col-sm-1">
+				<input type="text" ng-model="bp.bpCardValidityYYYY"
+					class="form-control" id="bpCardValidityYYYY" placeholder="YYYY" />
+			</div>
+		</tr>
+		<tr>
+			<div class="form-group">
+				<label for="bpCVV" class="col-sm-1 control-label">CVV</label>
+				<div class="col-sm-1">
+					<input type="text" ng-model="bp.bpCVV" class="form-control"
+						id="bpCVV" placeholder="CVV" />
+				</div>
+			</div>
+		</tr>
+	</table>
+
+</div>
+
+
+<div class="form-group">
+	<div class="col-sm-offset-3 col-sm-10">
+		<input type="submit" class="btn btn-primary" value="Pay" />
+	</div>
 </div>
