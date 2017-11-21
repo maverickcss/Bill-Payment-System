@@ -1,0 +1,114 @@
+<div class="form-group">
+    <label for="customerName" class="col-sm-2 control-label">Customer Name</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.customerName" class="form-control" id="customerName" placeholder="Customer Name"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="customerAddress" class="col-sm-2 control-label">Customer Address</label>
+    <div class="col-sm-10">
+        <input type="text" style="height:100px" ng-model="customer.customerAddress" class="form-control" id="customerAddress" placeholder="Customer Address"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="customerCountry" class="col-sm-2 control-label">Country</label>
+    <div class="col-sm-10">
+        <select ng-model="customer.customerCountry" class="form-control" id="customerCountry">
+            <option>India</option>
+            <option>UK</option>
+            <option>USA</option>
+            <option>Italy</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="customerState" class="col-sm-2 control-label">State</label>
+    <div class="col-sm-10">
+        <select ng-model="customer.customerState" class="form-control" id="customerState">
+            <option>Tamil Nadu</option>
+            <option>kerala</option>
+            <option>Karnataka</option>
+            
+            <option>Andhra Pradesh</option>
+            <option>Scotland</option>
+            <option>New Jersey</option>
+            <option>Rome</option>
+        </select>
+    </div>
+</div>
+<div class="form-group">
+    <label for="customerEmail" class="col-sm-2 control-label">Email Address</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.customerEmail" class="form-control" id="customerEmail" placeholder="Email Address"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="customerContactNo" class="col-sm-2 control-label">Contact Number</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.customerContactNo" class="form-control" id="customerContactNo" placeholder="Contact Number"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="customerIdentificationDocument" class="col-sm-2 control-label">Identification Document</label>
+    <div class="col-sm-10">
+        <select ng-model="customer.customerIdentificationDocument" class="form-control" id="customerIdentificationDocument">
+            <option>Voter Id</option>
+            <option>Passport</option>
+            <option>Driving License</option>
+            <option>PAN Card</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="identificationDocumentNumber" class="col-sm-2 control-label">Identification Document Number</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.identificationDocumentNumber" class="form-control" id="identificationDocumentNumber" placeholder="ID Doc Number"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="typeOfVendor" class="col-sm-2 control-label">Vendor Type</label>
+    <div class="col-sm-10">
+        <select ng-model="customer.typeOfVendor" class="form-control" id="typeOfVendor">
+            <option>Electricity</option>
+            <option>Telephone</option>
+            <option>Insurance</option>
+            <option>Tax</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="vendorName" class="col-sm-2 control-label">Vendor Name</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.vendorName" class="form-control" id="vendorName" placeholder="Vendor Name"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="cardNo" class="col-sm-2 control-label">Card Number</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.cardNo" class="form-control" id="cardNo" placeholder="Card Number"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cardValididtyDate" class="col-sm-2 control-label">Card Date Validity</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.cardValididtyDate" class="form-control" id="cardValididtyDate" placeholder="MM/YY"/>
+    </div>
+</div>
+<div class="form-group">
+    <label for="cardCvv" class="col-sm-2 control-label">CVV</label>
+    <div class="col-sm-10">
+        <input type="text" ng-model="customer.cardCvv" class="form-control" id="cardCvv" placeholder="CVV"/>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" class="btn btn-primary" value="Save"/>
+    </div>
+</div>

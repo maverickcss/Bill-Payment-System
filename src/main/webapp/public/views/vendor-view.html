@@ -1,0 +1,27 @@
+<div class="container pad-top">
+  <table class="table vendortable">
+    <tr>
+        <td><h3>Details for {{vendor.vendorName}}</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{vendor.vendorName}}</td>
+    </tr>
+    <tr>
+        <td>Company Reg Number</td>
+        <td>{{vendor.companyRegNo}}</td>
+    </tr>
+    <tr>
+        <td>Vendor Type</td>
+        <td>{{vendor.vendorType}}</td>
+    </tr>
+    <tr>
+        <td>Vendor Address</td>
+        <td>{{vendor.vendorAddress}}</td>
+    </tr>
+  </table>
+  <div>
+      <a class="btn btn-primary" ui-sref="editVendor({id:vendor.id})">Edit</a>
+  </div>
+</div>

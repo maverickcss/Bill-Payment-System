@@ -1,0 +1,19 @@
+<div class="container pad-top">
+  <a ui-sref="newVendor" class="btn-primary btn-lg nodecoration">Add New Vendor</a>
+  <table class="table vendortable">
+      <tr>
+          <td><h3>All Vendors</h3></td>
+          <td></td>
+      </tr>
+      <tr ng-repeat="vendor in vendors">
+          <td>{{vendor.vendorName}}</td>
+          <td>{{vendor.companyRegNo}}</td>
+          <td>{{vendor.vendorType}}</td>
+          <td>{{vendor.vendorAddress}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="viewVendor({id:vendor.id})">View</a>
+              <a class="btn btn-danger"  ng-click="deleteVendor(vendor)">Delete</a>
+          </td>
+      </tr>
+  </table>
+</div>
