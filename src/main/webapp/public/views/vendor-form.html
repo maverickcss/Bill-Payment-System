@@ -66,6 +66,7 @@
 	</div>
 </div>
 
+<<<<<<< HEAD
 
 <div ng-controller="CountryController">
 	<div class="form-group">
@@ -99,6 +100,38 @@
 	</div>
 	
 
+=======
+<div ng-controller="CountryController">
+<div class="form-group">
+	<label for="vendorCountry" class="col-sm-3 control-label">Country</label>
+	<div class="col-sm-6">
+		<select name="vendorCountry" ng-model="vendor.vendorCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
+			id="vendorCountry" required>
+			<option value=''>Select</option>
+		</select>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorCountry.$error"
+		ng-show="vendorForm.vendorCountry.$touched">
+		<p ng-message="required">Field is required</p>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<label for="vendorState" class="col-sm-3 control-label">State</label>
+	<div class="col-sm-6">
+		<select name="vendorState" ng-model="vendor.vendorState" ng-disabled="!vendor.vendorCountry" ng-options="state for (state,city) in vendor.vendorCountry" ng-change="GetSelectedState()" class="form-control"
+			id="vendorState" required>
+			<option value=''>Select</option>
+		</select>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorState.$error"
+		ng-show="vendorForm.vendorState.$touched">
+		<p ng-message="required">Field is required</p>
+	</div>
+</div>
+</div>
+>>>>>>> eb0ea7a5fdfdc14afa7929a58f17683aaa715d9e
 
 <div class="form-group">
 	<label for="vendorWebsite" class="col-sm-3 control-label">Website</label>
