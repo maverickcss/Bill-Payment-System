@@ -2,10 +2,19 @@
 	<label for="vendorName" class="col-sm-3 control-label">Vendor
 		Name</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorName" class="form-control"
-			id="vendorName" placeholder="Vendor Name" />
+		<input type="text" name="vendorName" ng-model="vendor.vendorName"
+			ng-pattern="/[A-Z][a-zA-Z]*(\\s+[A-Z][a-zA-Z]*)*$/"
+			class="form-control" id="vendorName" placeholder="Company Name"
+			required />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorName.$error"
+		ng-show="vendorForm.vendorName.$touched">
+		<p ng-message="required">Providing a vendor name is mandatory.</p>
+		<p ng-message="pattern">Vendor name must start with capital.</p>
+
 	</div>
 </div>
+
 <div class="form-group">
 	<label for="companyRegNo" class="col-sm-3 control-label">Company
 		Registration Number</label>
@@ -75,8 +84,16 @@
 	<label for="vendorEmail" class="col-sm-3 control-label">Email
 		Address</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorEmail" class="form-control"
-			id="vendorEmail" placeholder="Email Address" />
+		<input type="text" name="vendorEmail" ng-model="vendor.vendorEmail"
+			class="form-control" id="vendorEmail" placeholder="Email Address"
+			ng-pattern="/^[_]*([a-z0-9]+(\.|_*)?)+@([a-z][a-z0-9-]+(\.|-*\.))+[a-z]{2,6}$/"
+			required />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorEmail.$error"
+		ng-show="vendorForm.vendorEmail.$touched">
+		<p ng-message="required">Field cannot be empty</p>
+		<p ng-message="pattern">Not a valid Email Id</p>
+
 	</div>
 </div>
 <div class="form-group">
