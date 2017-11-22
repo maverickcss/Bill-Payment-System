@@ -14,33 +14,25 @@
 			id="customerAddress" placeholder="Customer Address" />
 	</div>
 </div>
+<div ng-controller="CountryController">
 <div class="form-group">
 	<label for="customerCountry" class="col-sm-3 control-label">Country</label>
 	<div class="col-sm-6">
-		<select ng-model="customer.customerCountry" class="form-control"
+		<select ng-model="customer.customerCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
 			id="customerCountry">
-			<option>India</option>
-			<option>UK</option>
-			<option>USA</option>
-			<option>Italy</option>
+			<option value=''>Select</option>
 		</select>
 	</div>
 </div>
 <div class="form-group">
 	<label for="customerState" class="col-sm-3 control-label">State</label>
 	<div class="col-sm-6">
-		<select ng-model="customer.customerState" class="form-control"
+		<select ng-model="customer.customerState" ng-disabled="!customer.customerCountry" ng-options="state for (state,city) in customer.customerCountry" ng-change="GetSelectedState()" class="form-control"
 			id="customerState">
-			<option>Tamil Nadu</option>
-			<option>kerala</option>
-			<option>Karnataka</option>
-
-			<option>Andhra Pradesh</option>
-			<option>Scotland</option>
-			<option>New Jersey</option>
-			<option>Rome</option>
+			<option value=''>Select</option>
 		</select>
 	</div>
+</div>
 </div>
 <div class="form-group">
 	<label for="customerEmail" class="col-sm-3 control-label">Email

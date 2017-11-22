@@ -64,6 +64,36 @@ angular.module('app.controllers', []).controller('VendorListController', functio
 		  };
 
 		  $scope.loadCustomer(); // Load a shipwreck which can be edited on UI
-		}).controller('BillPaymentController', function($scope, $stateParams, Vendor) {
+		}).controller('CountryController', ['$scope',
+	        function($scope) {
+
+
+	          $scope.countries = {
+
+	            'USA': {
+	              'Alabama': ['Montgomery', 'Birmingham'],
+	              'California': ['Sacramento', 'Fremont'],
+	              'Illinois': ['Springfield', 'Chicago']
+	            },
+	            'India': {
+	              'Maharashtra': ['Pune', 'Mumbai', 'Nagpur', 'Akola'],
+	              'Madhya Pradesh': ['Indore', 'Bhopal', 'Jabalpur'],
+	              'Rajasthan': ['Jaipur', 'Ajmer', 'Jodhpur']
+	            },
+	            'Australia': {
+	              'New South Wales': ['Sydney'],
+	              'Victoria': ['Melbourne']
+	            }
+	          };
+
+	          $scope.GetSelectedCountry = function(country) {
+	        	  
+	            $scope.strCountry = country;
+	          };
+	          $scope.GetSelectedState = function() {
+	            $scope.strState = $scope.stateSrc;
+	          };
+	        }
+	      ]).controller('BillPaymentController', function($scope, $stateParams, Vendor) {
 			  console.log("Bill Payment Page opening");
 		});
