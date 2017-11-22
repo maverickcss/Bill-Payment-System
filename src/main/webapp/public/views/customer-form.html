@@ -28,7 +28,7 @@
 <div class="form-group">
 	<label for="customerCountry" class="col-sm-3 control-label">Country</label>
 	<div class="col-sm-6">
-		<select data-ng-model="country" data-ng-options="country.name for country in countries" data-ng-change="updateCountry()" class="form-control"
+		<select name="customerCountry" data-ng-model="country" data-ng-options="country.name for country in countries" data-ng-change="updateCountry()" class="form-control"
 			id="customerCountry" required>
   <option value=""></option>
 </select>
@@ -41,7 +41,7 @@
 
 
 <div class="form-group">
-	<label for="customerState" class="col-sm-3 control-label">State</label>
+	<label for="customerState" name="customerState" class="col-sm-3 control-label">State</label>
 	<div class="col-sm-6">
 		<select data-ng-model="state" data-ng-options="state.name for state in availableStates" data-ng-change="updateCustomer()" class="form-control"
 			id="customerState" required>
@@ -90,7 +90,7 @@
 	<label for="customerIdentificationDocument"
 		class="col-sm-3 control-label">Identification Document</label>
 	<div class="col-sm-6">
-		<select ng-model="customer.customerIdentificationDocument"
+		<select name="customerIdentificationDocument" ng-model="customer.customerIdentificationDocument"
 			class="form-control" id="customerIdentificationDocument">
 			<option>Voter Id</option>
 			<option>Passport</option>
