@@ -28,10 +28,6 @@ public class VendorController {
 		Integer cvd = cid + 15;
 		Integer yos = cid - yoe;
 		String cert = "";
-//		System.out.println("cid: "+cid);
-//		System.out.println("cvd: "+cvd);
-//		System.out.println("yos: "+yos);
-//		System.out.println("cert: "+cert);
 		if(yos>0 && yos<6) cert = "A+";
 		else if(yos>5 && yos<11) cert = "B+";
 		else if(yos>10 && yos<16) cert = "C+";

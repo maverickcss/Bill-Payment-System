@@ -32,8 +32,7 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-    	System.out.println("---------- registration GET method called");
-    	
+   	
         model.addAttribute("userForm", new User());
 
         return "registration";
@@ -41,7 +40,6 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-    	System.out.println("---------- registration POST method called");
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -57,7 +55,6 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
-    	System.out.println("---------- login method called");
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 
@@ -69,13 +66,13 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-    	System.out.println("------ Welcome method called!!!!");
+
         return "redirect:/index.html";
     }
     
     @RequestMapping(value="/logout", method = RequestMethod.GET)
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-    	System.out.println("Logout Method Called");
+
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         
         if (auth != null){    

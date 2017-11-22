@@ -19,64 +19,64 @@ public class Vendor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	
+
 	@NotNull
-	@Pattern(regexp="[A-Z][a-zA-Z]*(\\\\s+[A-Z][a-zA-Z]*)*$")
+	@Pattern(regexp = "[A-Z][a-zA-Z]*(\\\\s+[A-Z][a-zA-Z]*)*$")
 	String vendorName;
-	
+
 	@NotNull
 	@Max(99999)
 	@Min(10000)
 	Integer companyRegNo;
-	
+
 	@NotNull
 	String vendorType;
-	
+
 	@NotNull
 	String vendorAddress;
-	
+
 	@NotNull
 	String vendorCountry;
-	
+
 	@NotNull
 	String vendorState;
-	
+
 	@NotNull
-	@Pattern(regexp="(https?:\\/\\/)?([\\w\\d]+\\.)?[\\w\\d]+\\.\\w+\\/?.+")
+	@Pattern(regexp = "^(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\\-\\.]{1}[a-z0-9]+)*\\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$")
 	String vendorWebsite;
-	
+
 	@NotNull
-	@Pattern(regexp="^[_]*([a-z0-9]+(\\.|_*)?)+@([a-z][a-z0-9-]+(\\.|-*\\.))+[a-z]{2,6}$")
+	@Pattern(regexp = "^[_]*([a-z0-9]+(\\.|_*)?)+@([a-z][a-z0-9-]+(\\.|-*\\.))+[a-z]{2,6}$")
 	String vendorEmail;
-	
+
 	@NotNull
-	@Pattern(regexp="(^$|[0-9]{10})")
+	@Pattern(regexp = "(^$|[0-9]{10})")
 	String vendorContactNo;
-	
+
 	@NotNull
 	Integer vendorEmployeeCount;
-	
+
 	@NotNull
 	@Min(1900)
 	@Max(2099)
 	Integer vendorYearOfEstablishment;
-	
+
 	@NotNull
 	@Min(1900)
 	@Max(2099)
 	Integer vendorCertificateIssueDate;
-	
+
 	@NotNull
 	@Min(1900)
 	@Max(2099)
 	Integer vendorCertificateValidityDate;
-	
+
 	@NotNull
 	String vendorCertificateGrade;
-	
+
 	@NotNull
 	Integer vendorYearsOfSurvival;
-	
+
 	public Vendor() {
 	}
 
@@ -231,6 +231,4 @@ public class Vendor {
 		this.vendorYearsOfSurvival = vendorYearsOfSurvival;
 	}
 
-	
-	
 }

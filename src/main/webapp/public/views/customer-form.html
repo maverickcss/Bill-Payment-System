@@ -10,8 +10,7 @@
 	<label for="customerAddress" class="col-sm-3 control-label">Customer
 		Address</label>
 	<div class="col-sm-6">
-		<input type="text" style="height: 100px"
-			ng-model="customer.customerAddress" class="form-control"
+		<input type="text" ng-model="customer.customerAddress" class="form-control"
 			id="customerAddress" placeholder="Customer Address" />
 	</div>
 </div>
@@ -103,9 +102,11 @@
 <div class="form-group">
 	<label for="vendorName" class="col-sm-3 control-label">Vendor
 		Name</label>
-	<div class="col-sm-6">
-		<input type="text" ng-model="customer.vendorName" class="form-control"
-			id="vendorName" placeholder="Vendor Name" />
+	<div class="col-sm-6" ng-controller="VendorListController">
+		<select ng-model="customer.vendorName" ng-options="vendor.vendorName for vendor in vendors" class="form-control"
+			id="vendorName">
+			
+		</select>
 	</div>
 </div>
 
