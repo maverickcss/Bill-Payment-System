@@ -1,5 +1,6 @@
 package com.boot.controller;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -22,6 +23,26 @@ public class VendorController {
 	
 	@RequestMapping(value = "vendors", method = RequestMethod.POST)
 	public Vendor create(@RequestBody Vendor vendor){
+		Integer yoe = vendor.getVendorYearOfEstablishment();
+		Integer cid = Calendar.getInstance().get(Calendar.YEAR);
+		Integer cvd = cid + 15;
+		Integer yos = cid - yoe;
+		String cert = "";
+//		System.out.println("cid: "+cid);
+//		System.out.println("cvd: "+cvd);
+//		System.out.println("yos: "+yos);
+//		System.out.println("cert: "+cert);
+		if(yos>0 && yos<6) cert = "A+";
+		else if(yos>5 && yos<11) cert = "B+";
+		else if(yos>10 && yos<16) cert = "C+";
+		else if(yos>15 && yos<26) cert = "D+";
+		else if(yos>25 && yos<51) cert = "E+";
+		else if(yos>50) cert = "F+";
+		else cert = "Invalid";
+		vendor.setVendorCertificateIssueDate(cid);
+		vendor.setVendorCertificateValidityDate(cvd);
+		vendor.setVendorYearsOfSurvival(yos);
+		vendor.setVendorCertificateGrade(cert);
 		return vendorRepository.saveAndFlush(vendor);
 	}
 	

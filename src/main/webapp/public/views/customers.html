@@ -5,10 +5,16 @@
           <td><h3>All Customers</h3></td>
           <td></td>
       </tr>
+      <tr bgcolor="#D3D3D3">
+      	  <td><b>Name</b></td>
+          <td><b>Email</b></td>
+          <td><b>Contact</b></td>
+          <td><b>View/Delete</b></td>
+      </tr>
       <tr ng-repeat="customer in customers">
           <td>{{customer.customerName}}</td>
-          <td>{{customer.customerAddress}}</td>
-          <td>{{customer.contactNo}}</td>
+          <td>{{customer.customerEmail}}</td>
+          <td>{{customer.customerContactNo}}</td>
           <td>
               <a class="btn btn-primary" ui-sref="viewCustomer({id:customer.id})">View</a>
               <a class="btn btn-danger"  ng-click="deleteCustomer(customer)">Delete</a>

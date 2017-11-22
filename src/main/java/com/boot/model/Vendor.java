@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Email;
 
@@ -15,49 +19,65 @@ public class Vendor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	@Column(name = "VendorName")
+	
+	@NotNull
+	@Pattern(regexp="[A-Z][a-zA-Z]*(\\\\s+[A-Z][a-zA-Z]*)*$")
 	String vendorName;
-	@Column(name = "CompanyRegNo")
+	
+	@NotNull
+	@Max(99999)
+	@Min(10000)
 	Integer companyRegNo;
-	@Column(name = "VendorType")
+	
+	@NotNull
 	String vendorType;
-	@Column(name = "VendorAddress")
+	
+	@NotNull
 	String vendorAddress;
-	@Column(name = "VendorCountry")
+	
+	@NotNull
 	String vendorCountry;
-	@Column(name = "VendorState")
+	
+	@NotNull
 	String vendorState;
-	@Column(name = "VendorWebsite")
+	
+	@NotNull
+	@Pattern(regexp="(https?:\\/\\/)?([\\w\\d]+\\.)?[\\w\\d]+\\.\\w+\\/?.+")
 	String vendorWebsite;
-	@Column(name = "VendorEmail")
-	@Email(message = "Invalid Email")
+	
+	@NotNull
+	@Pattern(regexp="^[_]*([a-z0-9]+(\\.|_*)?)+@([a-z][a-z0-9-]+(\\.|-*\\.))+[a-z]{2,6}$")
 	String vendorEmail;
-	@Column(name = "VendorContactNo")
+	
+	@NotNull
+	@Pattern(regexp="(^$|[0-9]{10})")
 	String vendorContactNo;
-	@Column(name = "VendorEmployeeCount")
-	String vendorEmployeeCount;
-	@Column(name = "VendorYearOfEstablishment")
-	String vendorYearOfEstablishment;
+	
+	@NotNull
+	Integer vendorEmployeeCount;
+	
+	@NotNull
+	@Min(1900)
+	@Max(2099)
+	Integer vendorYearOfEstablishment;
+	
+	@NotNull
+	@Min(1900)
+	@Max(2099)
+	Integer vendorCertificateIssueDate;
+	
+	@NotNull
+	@Min(1900)
+	@Max(2099)
+	Integer vendorCertificateValidityDate;
+	
+	@NotNull
+	String vendorCertificateGrade;
+	
+	@NotNull
+	Integer vendorYearsOfSurvival;
 	
 	public Vendor() {
-	}
-
-	public Vendor(Long id, String vendorName, Integer companyRegNo, String vendorType, String vendorAddress,
-			String vendorCountry, String vendorState, String vendorWebsite, String vendorEmail, String vendorContactNo,
-			String vendorEmployeeCount, String vendorYearOfEstablishment) {
-		super();
-		this.id = id;
-		this.vendorName = vendorName;
-		this.companyRegNo = companyRegNo;
-		this.vendorType = vendorType;
-		this.vendorAddress = vendorAddress;
-		this.vendorCountry = vendorCountry;
-		this.vendorState = vendorState;
-		this.vendorWebsite = vendorWebsite;
-		this.vendorEmail = vendorEmail;
-		this.vendorContactNo = vendorContactNo;
-		this.vendorEmployeeCount = vendorEmployeeCount;
-		this.vendorYearOfEstablishment = vendorYearOfEstablishment;
 	}
 
 	public Long getId() {
@@ -140,20 +160,75 @@ public class Vendor {
 		this.vendorContactNo = vendorContactNo;
 	}
 
-	public String getVendorEmployeeCount() {
+	public Integer getVendorEmployeeCount() {
 		return vendorEmployeeCount;
 	}
 
-	public void setVendorEmployeeCount(String vendorEmployeeCount) {
+	public void setVendorEmployeeCount(Integer vendorEmployeeCount) {
 		this.vendorEmployeeCount = vendorEmployeeCount;
 	}
 
-	public String getVendorYearOfEstablishment() {
+	public Integer getVendorYearOfEstablishment() {
 		return vendorYearOfEstablishment;
 	}
 
-	public void setVendorYearOfEstablishment(String vendorYearOfEstablishment) {
+	public void setVendorYearOfEstablishment(Integer vendorYearOfEstablishment) {
 		this.vendorYearOfEstablishment = vendorYearOfEstablishment;
+	}
+
+	public Integer getVendorCertificateIssueDate() {
+		return vendorCertificateIssueDate;
+	}
+
+	public void setVendorCertificateIssueDate(Integer vendorCertificateIssueDate) {
+		this.vendorCertificateIssueDate = vendorCertificateIssueDate;
+	}
+
+	public Integer getVendorCertificateValidityDate() {
+		return vendorCertificateValidityDate;
+	}
+
+	public void setVendorCertificateValidityDate(Integer vendorCertificateValidityDate) {
+		this.vendorCertificateValidityDate = vendorCertificateValidityDate;
+	}
+
+	public String getVendorCertificateGrade() {
+		return vendorCertificateGrade;
+	}
+
+	public void setVendorCertificateGrade(String vendorCertificateGrade) {
+		this.vendorCertificateGrade = vendorCertificateGrade;
+	}
+
+	public Integer getVendorYearsOfSurvival() {
+		return vendorYearsOfSurvival;
+	}
+
+	public void setVendorYearsOfSurvival(Integer vendorYearsOfSurvival) {
+		this.vendorYearsOfSurvival = vendorYearsOfSurvival;
+	}
+
+	public Vendor(Long id, String vendorName, Integer companyRegNo, String vendorType, String vendorAddress,
+			String vendorCountry, String vendorState, String vendorWebsite, String vendorEmail, String vendorContactNo,
+			Integer vendorEmployeeCount, Integer vendorYearOfEstablishment, Integer vendorCertificateIssueDate,
+			Integer vendorCertificateValidityDate, String vendorCertificateGrade, Integer vendorYearsOfSurvival) {
+		super();
+		this.id = id;
+		this.vendorName = vendorName;
+		this.companyRegNo = companyRegNo;
+		this.vendorType = vendorType;
+		this.vendorAddress = vendorAddress;
+		this.vendorCountry = vendorCountry;
+		this.vendorState = vendorState;
+		this.vendorWebsite = vendorWebsite;
+		this.vendorEmail = vendorEmail;
+		this.vendorContactNo = vendorContactNo;
+		this.vendorEmployeeCount = vendorEmployeeCount;
+		this.vendorYearOfEstablishment = vendorYearOfEstablishment;
+		this.vendorCertificateIssueDate = vendorCertificateIssueDate;
+		this.vendorCertificateValidityDate = vendorCertificateValidityDate;
+		this.vendorCertificateGrade = vendorCertificateGrade;
+		this.vendorYearsOfSurvival = vendorYearsOfSurvival;
 	}
 
 	

@@ -9,13 +9,46 @@
         <td>{{customer.customerName}}</td>
       </tr>
       <tr>
-        <td>Customer Address</td>
+        <td>Address</td>
         <td>{{customer.customerAddress}}</td>
       </tr>
       <tr>
-        <td>Contact Number</td>
-        <td>{{customer.contactNo}}</td>
+        <td>Country</td>
+        <td>{{customer.customerCountry}}</td>
       </tr>
+      <tr>
+        <td>State</td>
+        <td>{{customer.customerState}}</td>
+      </tr>
+      <tr>
+        <td>Email Address</td>
+        <td>{{customer.customerEmail}}</td>
+      </tr>
+      <tr>
+        <td>Contact Number</td>
+        <td>{{customer.customerContactNo}}</td>
+      </tr>
+      <tr>
+        <td>Identification Document</td>
+        <td>{{customer.customerIdentificationDocument}}</td>
+      </tr>
+      <tr>
+        <td>Identification Document Number</td>
+        <td>{{customer.identificationDocumentNumber}}</td>
+      </tr>
+      <tr>
+        <td>Vendor Type</td>
+        <td>{{customer.typeOfVendor}}</td>
+      </tr>
+      <tr>
+        <td>Vendor Name</td>
+        <td>{{customer.vendorName}}</td>
+      </tr>
+      <tr>
+        <td>Card Number</td>
+        <td>{{customer.cardNo}}</td>
+      </tr>
+
     </table>
     <div>
         <a class="btn btn-primary" ui-sref="editCustomer({id:customer.id})">Edit</a>

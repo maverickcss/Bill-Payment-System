@@ -13,27 +13,19 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	@Column(name = "CustomerName")
 	String customerName;
-	@Column(name = "CustomerAddress")
 	String customerAddress;
-	@Column(name = "CustomerContactNo")
 	Integer customerContactNo;
-	@Column(name = "CustomerCountry")
 	String customerCountry;
-	@Column(name = "CustomerState")
 	String customerState;
-	@Column(name = "CustomerEmail")
 	String customerEmail;
-	@Column(name = "CustomerIdentificationDocument")
 	String customerIdentificationDocument;
-	@Column(name = "IdentificationDocumentNumber")
 	String identificationDocumentNumber;
-	@Column(name = "CardNo")
+	String typeOfVendor;
+	String vendorName;
 	String cardNo;
-	@Column(name = "CardValidityDate")
-	String cardValidityDate;
-	@Column(name = "CardCvv")
+	String cardValidityMM;
+	String cardValidityYYYY;
 	String cardCvv;
 	
 	public Customer() {
@@ -41,7 +33,8 @@ public class Customer {
 
 	public Customer(Long id, String customerName, String customerAddress, Integer customerContactNo,
 			String customerCountry, String customerState, String customerEmail, String customerIdentificationDocument,
-			String identificationDocumentNumber, String cardNo, String cardValidityDate, String cardCvv) {
+			String identificationDocumentNumber, String typeOfVendor, String vendorName, String cardNo,
+			String cardValidityMM, String cardValidityYYYY, String cardCvv) {
 		super();
 		this.id = id;
 		this.customerName = customerName;
@@ -52,8 +45,11 @@ public class Customer {
 		this.customerEmail = customerEmail;
 		this.customerIdentificationDocument = customerIdentificationDocument;
 		this.identificationDocumentNumber = identificationDocumentNumber;
+		this.typeOfVendor = typeOfVendor;
+		this.vendorName = vendorName;
 		this.cardNo = cardNo;
-		this.cardValidityDate = cardValidityDate;
+		this.cardValidityMM = cardValidityMM;
+		this.cardValidityYYYY = cardValidityYYYY;
 		this.cardCvv = cardCvv;
 	}
 
@@ -129,6 +125,22 @@ public class Customer {
 		this.identificationDocumentNumber = identificationDocumentNumber;
 	}
 
+	public String getTypeOfVendor() {
+		return typeOfVendor;
+	}
+
+	public void setTypeOfVendor(String typeOfVendor) {
+		this.typeOfVendor = typeOfVendor;
+	}
+
+	public String getVendorName() {
+		return vendorName;
+	}
+
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
+	}
+
 	public String getCardNo() {
 		return cardNo;
 	}
@@ -137,12 +149,20 @@ public class Customer {
 		this.cardNo = cardNo;
 	}
 
-	public String getCardValidityDate() {
-		return cardValidityDate;
+	public String getCardValidityMM() {
+		return cardValidityMM;
 	}
 
-	public void setCardValidityDate(String cardValidityDate) {
-		this.cardValidityDate = cardValidityDate;
+	public void setCardValidityMM(String cardValidityMM) {
+		this.cardValidityMM = cardValidityMM;
+	}
+
+	public String getCardValidityYYYY() {
+		return cardValidityYYYY;
+	}
+
+	public void setCardValidityYYYY(String cardValidityYYYY) {
+		this.cardValidityYYYY = cardValidityYYYY;
 	}
 
 	public String getCardCvv() {

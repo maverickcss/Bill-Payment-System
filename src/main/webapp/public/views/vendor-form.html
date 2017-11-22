@@ -9,59 +9,87 @@
 	</div>
 	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorName.$error"
 		ng-show="vendorForm.vendorName.$touched">
-		<p ng-message="required">Providing a vendor name is mandatory.</p>
+		<p ng-message="required">Field is required</p>
 		<p ng-message="pattern">Vendor name must start with capital.</p>
 
 	</div>
 </div>
 
+
 <div class="form-group">
 	<label for="companyRegNo" class="col-sm-3 control-label">Company
 		Registration Number</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.companyRegNo" class="form-control"
-			id="companyRegNo" placeholder="Company Registration Number" />
+		<input type="text" name="companyRegNo" ng-model="vendor.companyRegNo" class="form-control"
+			id="companyRegNo" placeholder="Company Registration Number" ng-minlength="5" ng-maxlength="5" required ng-pattern="/^-?\d+$/" />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.companyRegNo.$error"
+		ng-show="vendorForm.companyRegNo.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Should be 5-digit integer</p>
+		<p ng-message="maxlength">Should be 5-digit integer</p>
+		<p ng-message="minlength">Should be 5-digit integer</p>
+
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorType" class="col-sm-3 control-label">Vendor
 		Type</label>
 	<div class="col-sm-6">
-		<select ng-model="vendor.vendorType" class="form-control"
-			id="vendorType">
+		<select name="vendorType" ng-model="vendor.vendorType" class="form-control"
+			id="vendorType" required>
 			<option>Electricity</option>
 			<option>Telephone</option>
 			<option>Insurance</option>
 			<option>Tax</option>
 		</select>
 	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorType.$error"
+		ng-show="vendorForm.vendorType.$touched">
+		<p ng-message="required">Field is required</p>
+	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorAddress" class="col-sm-3 control-label">Vendor
 		Address</label>
 	<div class="col-sm-6">
-		<input type="text" style="height: 100px"
-			ng-model="vendor.vendorAddress" class="form-control form-control-lg"
-			id="vendorAddress" placeholder="Vendor Address" />
+		<input type="text" name="vendorAddress" ng-model="vendor.vendorAddress" class="form-control form-control-lg"
+			id="vendorAddress" placeholder="Vendor Address" required/>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorAddress.$error"
+		ng-show="vendorForm.vendorAddress.$touched">
+		<p ng-message="required">Field is required</p>
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorCountry" class="col-sm-3 control-label">Country</label>
 	<div class="col-sm-6">
-		<select ng-model="vendor.vendorCountry" class="form-control"
-			id="vendorCountry">
+		<select name="vendorCountry" ng-model="vendor.vendorCountry" class="form-control"
+			id="vendorCountry" required>
 			<option>India</option>
 			<option>UK</option>
 			<option>USA</option>
 			<option>Italy</option>
 		</select>
 	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorCountry.$error"
+		ng-show="vendorForm.vendorCountry.$touched">
+		<p ng-message="required">Field is required</p>
+	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorState" class="col-sm-3 control-label">State</label>
 	<div class="col-sm-6">
-		<select ng-model="vendor.vendorState" class="form-control"
-			id="vendorState">
+		<select name="vendorState" ng-model="vendor.vendorState" class="form-control"
+			id="vendorState" required>
 			<option>Tamil Nadu</option>
 			<option>kerala</option>
 			<option>Karnataka</option>
@@ -72,14 +100,27 @@
 			<option>Rome</option>
 		</select>
 	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorState.$error"
+		ng-show="vendorForm.vendorState.$touched">
+		<p ng-message="required">Field is required</p>
+	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorWebsite" class="col-sm-3 control-label">Website</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorWebsite"
-			class="form-control" id="vendorWebsite" placeholder="Website" />
+		<input name="vendorWebsite" type="text" ng-model="vendor.vendorWebsite"
+			class="form-control" id="vendorWebsite" placeholder="Website" ng-pattern="/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/" required/>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorWebsite.$error"
+		ng-show="vendorForm.vendorWebsite.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid Website Format</p>
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorEmail" class="col-sm-3 control-label">Email
 		Address</label>
@@ -92,39 +133,67 @@
 	<div class="col-sm-offset-9"
 		ng-messages="vendorForm.vendorEmail.$error"
 		ng-show="vendorForm.vendorEmail.$touched">
-		<p ng-message="required">Field cannot be empty</p>
-		<p ng-message="pattern">Not a valid Email Id</p>
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid Email Id</p>
 
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorContactNo" class="col-sm-3 control-label">Contact
 		Number</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorContactNo"
+		<input name="vendorContactNo" type="text" ng-model="vendor.vendorContactNo"
 			class="form-control" id="vendorContactNo"
-			placeholder="Contact Number" />
+			placeholder="Contact Number" ng-pattern="/^-?\d+$/" required/>
+	</div>
+	<div class="col-sm-offset-9"
+		ng-messages="vendorForm.vendorContactNo.$error"
+		ng-show="vendorForm.vendorContactNo.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid Contact Number</p>
+
 	</div>
 </div>
+
 
 <div class="form-group">
 	<label for="vendorEmployeeCount" class="col-sm-3 control-label">Employee
 		Count</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorEmployeeCount"
-			class="form-control" id="vendorvendorEmployeeCount"
-			placeholder="Employee Count" />
+		<input name="vendorEmployeeCount" type="text" ng-model="vendor.vendorEmployeeCount"
+			class="form-control" id="vendorEmployeeCount"
+			placeholder="Employee Count" ng-pattern="/^-?\d+$/" required/>
+	</div>
+	<div class="col-sm-offset-9"
+		ng-messages="vendorForm.vendorEmployeeCount.$error"
+		ng-show="vendorForm.vendorEmployeeCount.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid Employee Count</p>
+
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="vendorYearOfEstablishment" class="col-sm-3 control-label">Year
 		of Establishment</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="vendor.vendorYearOfEstablishment"
+		<input name="vendorYearOfEstablishment" type="text" ng-model="vendor.vendorYearOfEstablishment"
 			class="form-control" id="vendorYearOfEstablishment"
-			placeholder="YYYY" />
+			placeholder="YYYY" ng-pattern="/^(19|20)\d{2}$/" required/>
+	</div>
+	<div class="col-sm-offset-9"
+		ng-messages="vendorForm.vendorEmployeeCount.$error"
+		ng-show="vendorForm.vendorEmployeeCount.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid Year</p>
+
 	</div>
 </div>
+
+
 <div class="form-group">
 	<div class="col-sm-offset-3 col-sm-10">
 		<input type="submit" class="btn btn-primary" value="Save" />
