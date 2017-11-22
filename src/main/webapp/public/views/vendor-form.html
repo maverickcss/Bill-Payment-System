@@ -89,7 +89,8 @@
 			ng-pattern="/^[_]*([a-z0-9]+(\.|_*)?)+@([a-z][a-z0-9-]+(\.|-*\.))+[a-z]{2,6}$/"
 			required />
 	</div>
-	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorEmail.$error"
+	<div class="col-sm-offset-9"
+		ng-messages="vendorForm.vendorEmail.$error"
 		ng-show="vendorForm.vendorEmail.$touched">
 		<p ng-message="required">Field cannot be empty</p>
 		<p ng-message="pattern">Not a valid Email Id</p>

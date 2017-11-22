@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
+
 @Entity
 @Table(name = "VENDOR")
 public class Vendor {
@@ -28,6 +30,7 @@ public class Vendor {
 	@Column(name = "VendorWebsite")
 	String vendorWebsite;
 	@Column(name = "VendorEmail")
+	@Email(message = "Invalid Email")
 	String vendorEmail;
 	@Column(name = "VendorContactNo")
 	String vendorContactNo;

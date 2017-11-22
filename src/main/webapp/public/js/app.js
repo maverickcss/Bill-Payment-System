@@ -4,11 +4,7 @@
 	// define for requirejs loaded modules
 	define('app', [], function() { return app; });
 	
-	app.config(['$httpProvider', function($httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    }
-]);
+
 	
 	// function for dynamic load with requirejs of a javascript module for use with a view
 	// in the state definition call add property `resolve: req('/views/ui.js')`

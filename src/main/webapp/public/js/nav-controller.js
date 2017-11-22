@@ -25,10 +25,6 @@ angular.module('navController', [])
 			{
 				name: 'Bill Payment',
 				url: '#/billpayment'
-			},
-			{
-				name: 'Logout',
-				url: 'logout'
 			}
 		]
 	});
