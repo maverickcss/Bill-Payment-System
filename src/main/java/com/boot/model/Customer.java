@@ -15,7 +15,7 @@ public class Customer {
 	Long id;
 	String customerName;
 	String customerAddress;
-	Integer customerContactNo;
+	String customerContactNo;
 	String customerCountry;
 	String customerState;
 	String customerEmail;
@@ -31,7 +31,7 @@ public class Customer {
 	public Customer() {
 	}
 
-	public Customer(Long id, String customerName, String customerAddress, Integer customerContactNo,
+	public Customer(Long id, String customerName, String customerAddress, String customerContactNo,
 			String customerCountry, String customerState, String customerEmail, String customerIdentificationDocument,
 			String identificationDocumentNumber, String typeOfVendor, String vendorName, String cardNo,
 			String cardValidityMM, String cardValidityYYYY, String cardCvv) {
@@ -77,11 +77,11 @@ public class Customer {
 		this.customerAddress = customerAddress;
 	}
 
-	public Integer getCustomerContactNo() {
+	public String getCustomerContactNo() {
 		return customerContactNo;
 	}
 
-	public void setCustomerContactNo(Integer customerContactNo) {
+	public void setCustomerContactNo(String customerContactNo) {
 		this.customerContactNo = customerContactNo;
 	}
 

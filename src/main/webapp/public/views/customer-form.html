@@ -18,7 +18,6 @@
 		<input type="text"  name="customerAddress" ng-model="customer.customerAddress" class="form-control"
 			id="customerAddress" placeholder="Customer Address" required />
 	</div>
-<<<<<<< HEAD
 	<div class="col-sm-offset-9" ng-messages="customerForm.customerAddress.$error"
 	ng-show="customerForm.customerAddress.$touched">
 	<p ng-message="required">Field is required</p>
@@ -26,49 +25,37 @@
 </div>
 
 <div ng-controller="CountryController">
-	<div class="form-group">
-		<label for="customerCountry" class="col-sm-3 control-label">Country</label>
-		<div class="col-sm-6">
-			<select ng-model="customer.customerCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
-				id="customerCountry">
-				<option value=''>Select</option>
-			</select>
-		</div>
-	</div>
-	<div class="form-group">
-		<label for="customerState" class="col-sm-3 control-label">State</label>
-		<div class="col-sm-6">
-			<select ng-model="customer.customerState" ng-disabled="!customer.customerCountry" ng-options="state for (state,city) in customer.customerCountry" ng-change="GetSelectedState()" class="form-control"
-				id="customerState">
-				<option value=''>Select</option>
-			</select>
-		</div>
-	</div>
-</div>
-
-=======
-</div>
-<div ng-controller="CountryController">
 <div class="form-group">
 	<label for="customerCountry" class="col-sm-3 control-label">Country</label>
 	<div class="col-sm-6">
-		<select ng-model="customer.customerCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
-			id="customerCountry">
-			<option value=''>Select</option>
-		</select>
+		<select data-ng-model="country" data-ng-options="country.name for country in countries" data-ng-change="updateCountry()" class="form-control"
+			id="customerCountry" required>
+  <option value=""></option>
+</select>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerCountry.$error"
+		ng-show="customerForm.customerCountry.$touched">
+		<p ng-message="required">Field is required</p>
 	</div>
 </div>
+
+
 <div class="form-group">
 	<label for="customerState" class="col-sm-3 control-label">State</label>
 	<div class="col-sm-6">
-		<select ng-model="customer.customerState" ng-disabled="!customer.customerCountry" ng-options="state for (state,city) in customer.customerCountry" ng-change="GetSelectedState()" class="form-control"
-			id="customerState">
-			<option value=''>Select</option>
-		</select>
+		<select data-ng-model="state" data-ng-options="state.name for state in availableStates" data-ng-change="updateCustomer()" class="form-control"
+			id="customerState" required>
+  <option value=""></option>
+</select>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerState.$error"
+		ng-show="customerForm.customerState.$touched">
+		<p ng-message="required">Field is required</p>
 	</div>
 </div>
+
 </div>
->>>>>>> eb0ea7a5fdfdc14afa7929a58f17683aaa715d9e
+
 <div class="form-group">
 	<label for="customerEmail" class="col-sm-3 control-label">Email
 		Address</label>
@@ -145,8 +132,8 @@
 	<label for="vendorName" class="col-sm-3 control-label">Vendor
 		Name</label>
 	<div class="col-sm-6" ng-controller="VendorListController">
-		<select ng-model="customer.vendorName" ng-options="vendor.vendorName for vendor in vendors" class="form-control"
-			id="vendorName">
+		<select ng-model="vName" ng-options="vendor.vendorName for vendor in vendors" class="form-control"
+			id="vendorName" ng-change="submitCustomerForm()">
 			
 		</select>
 	</div>
@@ -215,4 +202,3 @@
 		<input type="submit" class="btn btn-primary" value="Save" />
 	</div>
 </div>
-
