@@ -56,6 +56,22 @@ public class VendorController {
 	public Vendor update(@PathVariable Long id, @RequestBody Vendor vendor){
 		Vendor existingVendor = vendorRepository.findOne(id);
 		BeanUtils.copyProperties(vendor, existingVendor);
+		Integer yoe = existingVendor.getVendorYearOfEstablishment();
+		Integer cid = Calendar.getInstance().get(Calendar.YEAR);
+		Integer cvd = cid + 15;
+		Integer yos = cid - yoe;
+		String cert = "";
+		if(yos>0 && yos<6) cert = "A+";
+		else if(yos>5 && yos<11) cert = "B+";
+		else if(yos>10 && yos<16) cert = "C+";
+		else if(yos>15 && yos<26) cert = "D+";
+		else if(yos>25 && yos<51) cert = "E+";
+		else if(yos>50) cert = "F+";
+		else cert = "Invalid";
+		existingVendor.setVendorCertificateIssueDate(cid);
+		existingVendor.setVendorCertificateValidityDate(cvd);
+		existingVendor.setVendorYearsOfSurvival(yos);
+		existingVendor.setVendorCertificateGrade(cert);
 		return vendorRepository.saveAndFlush(existingVendor);
 	}
 	
