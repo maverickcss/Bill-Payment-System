@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" novalidate>
 	<label for="vendorName" class="col-sm-3 control-label">Vendor
 		Name</label>
 	<div class="col-sm-6">
@@ -67,44 +67,37 @@
 </div>
 
 
-<div class="form-group">
-	<label for="vendorCountry" class="col-sm-3 control-label">Country</label>
-	<div class="col-sm-6">
-		<select name="vendorCountry" ng-model="vendor.vendorCountry" class="form-control"
-			id="vendorCountry" required>
-			<option>India</option>
-			<option>UK</option>
-			<option>USA</option>
-			<option>Italy</option>
-		</select>
+<div ng-controller="CountryController">
+	<div class="form-group">
+		<label for="vendorCountry" class="col-sm-3 control-label">Country</label>
+		<div class="col-sm-6">
+			<select name="vendorCountry" ng-model="vendor.vendorCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
+				id="vendorCountry" required>
+				<option value=''>Select</option>
+			</select>
+		</div>
+		<div class="col-sm-offset-9" ng-messages="vendorForm.vendorCountry.$error"
+			ng-show="vendorForm.vendorCountry.$touched">
+			<p ng-message="required">Field is required</p>
+		</div>
 	</div>
-	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorCountry.$error"
-		ng-show="vendorForm.vendorCountry.$touched">
-		<p ng-message="required">Field is required</p>
+	
+	
+	<div class="form-group">
+		<label for="vendorState" class="col-sm-3 control-label">State</label>
+		<div class="col-sm-6">
+			<select name="vendorState" ng-model="vendor.vendorState" ng-disabled="!vendor.vendorCountry" ng-options="state for (state,city) in vendor.vendorCountry" ng-change="GetSelectedState()" class="form-control"
+				id="vendorState" required>
+				<option value=''>Select</option>
+			</select>
+		</div>
+		<div class="col-sm-offset-9" ng-messages="vendorForm.vendorState.$error"
+			ng-show="vendorForm.vendorState.$touched">
+			<p ng-message="required">Field is required</p>
+		</div>
 	</div>
-</div>
-
-
-<div class="form-group">
-	<label for="vendorState" class="col-sm-3 control-label">State</label>
-	<div class="col-sm-6">
-		<select name="vendorState" ng-model="vendor.vendorState" class="form-control"
-			id="vendorState" required>
-			<option>Tamil Nadu</option>
-			<option>kerala</option>
-			<option>Karnataka</option>
-
-			<option>Andhra Pradesh</option>
-			<option>Scotland</option>
-			<option>New Jersey</option>
-			<option>Rome</option>
-		</select>
 	</div>
-	<div class="col-sm-offset-9" ng-messages="vendorForm.vendorState.$error"
-		ng-show="vendorForm.vendorState.$touched">
-		<p ng-message="required">Field is required</p>
-	</div>
-</div>
+	
 
 
 <div class="form-group">

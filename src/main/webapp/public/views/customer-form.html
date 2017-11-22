@@ -2,52 +2,61 @@
 	<label for="customerName" class="col-sm-3 control-label">Customer
 		Name</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.customerName"
-			class="form-control" id="customerName" placeholder="Customer Name" />
+		<input type="text" name="customerName" ng-model="customer.customerName"
+			class="form-control" id="customerName" placeholder="Customer Name" required/>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerName.$error"
+		ng-show="customerForm.customerName.$touched">
+		<p ng-message="required">Field is required</p>
 	</div>
 </div>
+
 <div class="form-group">
 	<label for="customerAddress" class="col-sm-3 control-label">Customer
 		Address</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.customerAddress" class="form-control"
-			id="customerAddress" placeholder="Customer Address" />
+		<input type="text"  name="customerAddress" ng-model="customer.customerAddress" class="form-control"
+			id="customerAddress" placeholder="Customer Address" required />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerAddress.$error"
+	ng-show="customerForm.customerAddress.$touched">
+	<p ng-message="required">Field is required</p>
 	</div>
 </div>
-<div class="form-group">
-	<label for="customerCountry" class="col-sm-3 control-label">Country</label>
-	<div class="col-sm-6">
-		<select ng-model="customer.customerCountry" class="form-control"
-			id="customerCountry">
-			<option>India</option>
-			<option>UK</option>
-			<option>USA</option>
-			<option>Italy</option>
-		</select>
-	</div>
-</div>
-<div class="form-group">
-	<label for="customerState" class="col-sm-3 control-label">State</label>
-	<div class="col-sm-6">
-		<select ng-model="customer.customerState" class="form-control"
-			id="customerState">
-			<option>Tamil Nadu</option>
-			<option>kerala</option>
-			<option>Karnataka</option>
 
-			<option>Andhra Pradesh</option>
-			<option>Scotland</option>
-			<option>New Jersey</option>
-			<option>Rome</option>
-		</select>
+<div ng-controller="CountryController">
+	<div class="form-group">
+		<label for="customerCountry" class="col-sm-3 control-label">Country</label>
+		<div class="col-sm-6">
+			<select ng-model="customer.customerCountry" ng-options="country for (country,states) in countries" ng-change="GetSelectedCountry()" class="form-control"
+				id="customerCountry">
+				<option value=''>Select</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="customerState" class="col-sm-3 control-label">State</label>
+		<div class="col-sm-6">
+			<select ng-model="customer.customerState" ng-disabled="!customer.customerCountry" ng-options="state for (state,city) in customer.customerCountry" ng-change="GetSelectedState()" class="form-control"
+				id="customerState">
+				<option value=''>Select</option>
+			</select>
+		</div>
 	</div>
 </div>
+
 <div class="form-group">
 	<label for="customerEmail" class="col-sm-3 control-label">Email
 		Address</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.customerEmail"
-			class="form-control" id="customerEmail" placeholder="Email Address" />
+		<input type="text" name="customerEmail" ng-model="customer.customerEmail" required
+			ng-pattern="/^[_]*([a-z0-9]+(\.|_*)?)+@([a-z][a-z0-9-]+(\.|-*\.))+[a-z]{2,6}$/"
+			class="form-control" id="customerEmail" placeholder="Email Address"/>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerEmail.$error"
+	ng-show="customerForm.customerEmail.$touched">
+	<p ng-message="required">Field is required</p>
+	<p ng-message="pattern">Invalid Email Id</p>
 	</div>
 </div>
 
@@ -55,9 +64,14 @@
 	<label for="customerContactNo" class="col-sm-3 control-label">Contact
 		Number</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.customerContactNo"
-			class="form-control" id="customerContactNo"
+		<input type="text" name="customerContactNo" ng-model="customer.customerContactNo"
+			class="form-control" id="customerContactNo" ng-pattern="/^-?\d+$/" required
 			placeholder="Contact Number" />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.customerContactNo.$error"
+	ng-show="customerForm.customerContactNo.$touched">
+	<p ng-message="required">Field is required</p>
+	<p ng-message="pattern">Invalid Contact Number</p>
 	</div>
 </div>
 
@@ -79,9 +93,13 @@
 	<label for="identificationDocumentNumber"
 		class="col-sm-3 control-label">Identification Document Number</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.identificationDocumentNumber"
-			class="form-control" id="identificationDocumentNumber"
+		<input type="text" name="identificationDocumentNumber" ng-model="customer.identificationDocumentNumber"
+			class="form-control" id="identificationDocumentNumber" required
 			placeholder="ID Doc Number" />
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.identificationDocumentNumber.$error"
+	ng-show="customerForm.identificationDocumentNumber.$touched">
+	<p ng-message="required">Field is required</p>
 	</div>
 </div>
 
@@ -113,14 +131,18 @@
 <div class="form-group">
 	<label for="cardNo" class="col-sm-3 control-label">Card Number</label>
 	<div class="col-sm-6">
-		<input type="text" ng-model="customer.cardNo" class="form-control"
-			id="cardNo" placeholder="Card Number" />
+		<input type="text" ng-model="customer.cardNo" class="form-control" required
+			id="cardNo" placeholder="Card Number" pattern="[0-9]{16}"/>
+	</div>
+	<div class="col-sm-offset-9" ng-messages="customerForm.cardNo.$error"
+		ng-show="customerForm.cardNo.$touched">
+		<p ng-message="required">Field is required</p>
+		<p ng-message="pattern">Invalid card number</p>
 	</div>
 </div>
 
 <div class="form-group">
-	<label for="cardValidityDate" class="col-sm-3 control-label">Card
-		Validity</label>
+	<label for="cardValidityDate" class="col-sm-3 control-label">Card Validity</label>
 	<table>
 		<tr>
 			<div class="col-sm-1">
